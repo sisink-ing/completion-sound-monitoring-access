@@ -1,0 +1,4 @@
+﻿strategy,decisions,oracle_agreement,mean_confirmation_delay,median_confirmation_delay,mean_labels_at_decision,median_labels_at_decision,mean_returned_fraction,median_returned_fraction,early_confirmation_rate,false_positive,false_negative
+ARRIVED_ONLY_COMPLETE_COHORT,21574,0.6559284323723,5.224529526281636,0.0,33.80731435987763,31.0,0.3380731435987763,0.31,1.0,1634,5789
+FULL_COMPLETE_COHORT,19979,1.0,103.17383252415036,99.0,81.98438360278293,91.0,0.8198438360278292,0.91,0.9522999149106562,0,0
+WAIT_ALL_COMPLETE_COHORT,20510,1.0,153.28303266699172,150.0,100.0,100.0,1.0,1.0,0.0,0,0

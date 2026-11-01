@@ -1,0 +1,3 @@
+task,learner,model_version,block_hash,block_start_event,block_end_event,complete_decision_month,wait_decision_month,complete_decision,wait_decision,same_decision,complete_labels,wait_labels,advance_months,oracle_evaluable
+2,DT,0,2192ac74c137e2a1cdbf14e5d925c96f5227303095857d74870a4bb2ee07d340,600,699,2020-07,2021-02,DEGRADATION,DEGRADATION,1,12,100,7,1
+2,DT,1,feb2a4ef050b6f1e9ca751905eeb3f71eff4967051b668b519c45120bfbbb1ad,7157,7256,2023-04,2023-04,DEGRADATION,DEGRADATION,1,100,100,0,1

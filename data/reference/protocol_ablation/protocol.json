@@ -1,0 +1,24 @@
+{
+  "method": "Step24-aligned event loop; matched streams and delay schedules",
+  "modes": {
+    "FULL_PROTOCOL": "Multiple pending blocks, immutable predictions, stale authority revoked",
+    "SINGLE_PENDING": "Drop a newly closed monitoring block if an older pending block exists",
+    "NO_STALE_GUARD": "Retain other pending windows after alarm; old windows may trigger later",
+    "RECOMPUTED_HISTORY": "Fault injection: recompute returned losses using current model"
+  },
+  "event_order": [
+    "Prior cohort update",
+    "Current event prediction",
+    "Release delayed labels",
+    "Calibration completion",
+    "Event-time window evaluation"
+  ],
+  "windows": 100,
+  "epsilon": 0.02,
+  "post_update_calibration_size": 100,
+  "units": "Run macro = mean across nonempty runs; pooled = total correct / total decisions",
+  "interpretation": "Fault-injection controls are not valid competing algorithms",
+  "total_tasks": 300,
+  "total_runs": 1200,
+  "runtime_seconds": 48.441
+}

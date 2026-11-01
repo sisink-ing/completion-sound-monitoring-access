@@ -1,0 +1,53 @@
+{
+  "source": "BTS 2024-01 to 2024-03, Origin ATL, completed nondiverted flights",
+  "raw_atl_rows": 79595,
+  "excluded_cancelled_diverted_or_missing_label": 545,
+  "cleaned_rows": 79050,
+  "all_classes": {
+    "0": 65277,
+    "1": 13773
+  },
+  "train_rows": 200,
+  "train_classes": {
+    "0": 186,
+    "1": 14
+  },
+  "train_max_label_time_utc": "2024-01-02 01:16:00+00:00",
+  "calibration_rows": 200,
+  "calibration_classes": {
+    "0": 177,
+    "1": 23
+  },
+  "calibration_max_label_time_utc": "2024-01-02 20:45:00+00:00",
+  "online_4600_rows": 4600,
+  "online_4600_classes": {
+    "0": 3992,
+    "1": 608
+  },
+  "online_full_rows": 77802,
+  "online_full_classes": {
+    "0": 64183,
+    "1": 13619
+  },
+  "feedback_buffer_minutes_assumed": 10.0,
+  "online_4600_mean_delay_minutes": 137.83,
+  "online_4600_median_delay_minutes": 119.0,
+  "online_4600_adjacent_feedback_inversions": 2188,
+  "online_4600_overtaken_later_by_any_prior_flight": 4456,
+  "online_4600_labels_arriving_after_last_prediction": 67,
+  "prediction_feature_columns": [
+    "Reporting_Airline",
+    "Dest",
+    "DayOfWeek",
+    "CRSDepTime",
+    "CRSElapsedTime",
+    "Distance"
+  ],
+  "caveats": [
+    "Flight outcomes and labels are real BTS historical fields; feedback times are reconstructed proxies, NOT recorded label-processing timestamps.",
+    "Post hoc exclusion of cancelled/diverted/incomplete flights defines a retrospective completed-flight subpopulation.",
+    "Train/calibration selection waits until preceding labels are available, to prevent chronological leakage.",
+    "Release event id is the first subsequent prediction-event slot, with end-of-stream labels requiring time-ordered feedback flush.",
+    "CSV contains future/outcome fields for delayed-feedback simulation; ONLY prediction_feature_columns may enter the predictor."
+  ]
+}

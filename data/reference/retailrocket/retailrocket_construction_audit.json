@@ -1,0 +1,22 @@
+{
+  "raw_events": 2756101,
+  "event_counts": {
+    "view": 2664312,
+    "addtocart": 69332,
+    "transaction": 22457
+  },
+  "raw_event_sha256": "3745aa83238b1e6d44d8fda209807899f420084398f94ddf745f3cbcfecbf9e7",
+  "raw_archive_sha256": "5dc06173eaa4a4d3b0a5f6afc4daffb0218d95e409aaacba5fdaa0214eacf2a2",
+  "one_query_per_visitor_item_UTCday": true,
+  "same_timestamp_purchase_queries_excluded": 0,
+  "queries_after_dedup_and_tie_exclusion": 63309,
+  "feature_boundary": "All behavioral feature counts use raw event timestamps strictly earlier than the query. Same-timestamp events are withheld as a group.",
+  "business_target": "Same visitor buys the same item after adding it to cart, within the fixed horizon. Not causal response to discounts; no revenue uplift claimed.",
+  "end_of_log_ms": 1442545187788,
+  "target_only_fields": [
+    "next_same_item_purchase_ms",
+    "transactionid",
+    "feedback_clock",
+    "label"
+  ]
+}

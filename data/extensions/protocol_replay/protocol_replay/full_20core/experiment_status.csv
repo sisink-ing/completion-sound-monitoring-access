@@ -1,0 +1,10 @@
+task,learner,returncode,log,folder
+1,DT,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq1_dt/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq1_dt
+2,DT,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq2_dt/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq2_dt
+3,DT,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq3_dt/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq3_dt
+1,LR,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq1_lr/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq1_lr
+2,LR,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq2_lr/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq2_lr
+3,LR,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq3_lr/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq3_lr
+1,ARF,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq1_arf/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq1_arf
+3,ARF,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq3_arf/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq3_arf
+2,ARF,0,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq2_arf/run.log,/root/Creating/result/41_freddie_original_protocol_pilot/full_20core/delq2_arf

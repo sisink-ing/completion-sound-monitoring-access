@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "same_source_rows_and_features": 10594,
+  "original_sklearn_predictions_checked": 61164,
+  "prediction_mismatches": 0,
+  "all_initial_labels_mature_before_use": true,
+  "same_model_input_for_six_methods": true,
+  "actual_model_input_sha256": "ee6dc8e36e13512db547f506f3332fe1d01accf10f1374f016e473ed001c4a18",
+  "all_selected_cart_source_rows_verified": 25484,
+  "all_selected_labels_and_release_times_independently_verified": 25484,
+  "independent_label_join": "forward merge_asof with strict future purchase",
+  "independent_completion_bound_checks": 54,
+  "zero_completion_bound_failures": true,
+  "portable_reproduction_input_rebuild_verified": true
+}

@@ -1,0 +1,10 @@
+{
+  "prediction_time": "end of first monthly performance report",
+  "baseline": "current loan only",
+  "horizon_months": 12,
+  "payoff_01": "competing event, not unconditional negative",
+  "other_termination": "unresolved",
+  "unknown_label": -1,
+  "online_cutoff": "2020-01",
+  "time_resolution": "monthly report, not bank receipt timestamp"
+}

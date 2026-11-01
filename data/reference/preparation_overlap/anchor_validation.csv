@@ -1,0 +1,4 @@
+group,n,complete_mean,waitall_mean,lead_mean,lead_median,lead_q1,lead_q3,min_lead,expected_n,expected_complete_mean,expected_waitall_mean,expected_lead_mean,expected_lead_median,expected_lead_q1,expected_lead_q3,n_pass,complete_mean_pass,waitall_mean_pass,lead_mean_pass,lead_median_pass,lead_q1_pass,lead_q3_pass,all_pass
+ALL,19979,103.17383252415036,152.4806046348666,49.30677211071625,30.0,14.0,61.0,0.0,19979,103.17,152.48,49.31,30.0,14.0,61.0,True,True,True,True,True,True,True,True
+DEGRADATION,6188,77.6590174531351,158.8131868131868,81.15416936005171,56.0,25.0,118.0,0.0,6188,77.66,158.81,81.15,56.0,25.0,118.0,True,True,True,True,True,True,True,True
+TOLERABLE,13791,114.62228989920963,149.6391849757088,35.01689507649917,24.0,12.0,44.0,0.0,13791,114.62,149.64,35.02,24.0,12.0,44.0,True,True,True,True,True,True,True,True

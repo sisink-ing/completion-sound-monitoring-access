@@ -1,0 +1,21 @@
+{
+  "task": "delq3",
+  "dataset": "Freddie Mac 2017-2022",
+  "online_cutoff": "2020-01",
+  "train": 200,
+  "initial_calibration": 200,
+  "window": 100,
+  "epsilon": 0.02,
+  "soft_q": 30,
+  "post_update_calibration": 100,
+  "online_events": 9280,
+  "unknown_labels": 17,
+  "time_mode": "event-step month-end approximation",
+  "publication_ready": false,
+  "limitations": [
+    "calendar-month exact scheduling pending",
+    "unknown outcome oracle excluded",
+    "real-world class imbalance",
+    "no actual bank model deployment logs"
+  ]
+}

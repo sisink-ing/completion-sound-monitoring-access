@@ -1,0 +1,4 @@
+check,pass,value
+exactly 50 streams generated,True,50
+all 50 hashes globally unique,True,50
+10 unique hashes within every family,True,Agrawal:10; Mixed:10; RandomTree:10; SEA:10; Sine:10

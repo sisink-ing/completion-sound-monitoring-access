@@ -1,0 +1,3 @@
+strategy,display,n_online_queries,last_input_index,online_resolved_windows,final_resolved_windows,drain_resolved_windows,online_resolved_coverage_percent,final_resolved_coverage_percent,mean_delay_all_resolved,mean_delay_input_only,reported_mean_includes_drain
+FULL_COMPLETE_COHORT,Complete Cohort,10194,10593,53,54,1,51.99136747106141,52.97233666862861,157.33333333333334,158.60377358490567,True
+WAIT_ALL_COMPLETE_COHORT,Wait-All Complete,10194,10593,52,54,2,51.01039827349421,52.97233666862861,183.44444444444446,185.75,True

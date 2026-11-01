@@ -1,0 +1,19 @@
+{
+  "script": "29_preparation_overlap_utility_v2",
+  "scientific_question": "Can completion-sound early degradation confirmation overlap downstream preparation with unresolved-label acquisition?",
+  "counterfactual_definition": "For each exact Complete-Cohort window, same-window Wait-All is the final label arrival time in that identical event-time block.",
+  "main_paper_population": "DEGRADATION decisions",
+  "same_window_complete_decisions": 19979,
+  "degradation_decisions": 6188,
+  "preparation_horizons": [
+    10,
+    25,
+    50,
+    100
+  ],
+  "window_size": 100,
+  "window_collection_steps": 99,
+  "utility": "gain(h)=min(T_waitall-T_complete, h)",
+  "important_scope": "This quantifies preparation overlap, not earlier label-complete retraining.",
+  "scientific_rule": "h values 10,25,50,100 were fixed before successful Step-29 reconstruction."
+}

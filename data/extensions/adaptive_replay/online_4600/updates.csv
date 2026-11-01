@@ -1,0 +1,11 @@
+learner,method,update_event,update_time_utc,new_version,cohort_start,cohort_end,training_count,training_class_0,training_class_1,status
+LR,CompleteCohort,381,2024-01-03 10:00:00+00:00,1,1,100,100,85,15,updated
+LR,CompleteCohort,3739,2024-01-07 13:10:00+00:00,2,3462,3561,100,67,33,updated
+LR,WaitAllComplete,381,2024-01-03 10:00:00+00:00,1,1,100,100,85,15,updated
+LR,WaitAllComplete,3739,2024-01-07 13:10:00+00:00,2,3462,3561,100,67,33,updated
+DT,CompleteCohort,381,2024-01-03 10:00:00+00:00,1,1,100,100,85,15,updated
+DT,CompleteCohort,2900,2024-01-06 10:21:00+00:00,2,2662,2761,100,88,12,updated
+DT,CompleteCohort,3586,2024-01-07 02:35:00+00:00,3,3276,3375,100,78,22,updated
+DT,WaitAllComplete,381,2024-01-03 10:00:00+00:00,1,1,100,100,85,15,updated
+DT,WaitAllComplete,2900,2024-01-06 10:21:00+00:00,2,2662,2761,100,88,12,updated
+DT,WaitAllComplete,3586,2024-01-07 02:35:00+00:00,3,3276,3375,100,78,22,updated

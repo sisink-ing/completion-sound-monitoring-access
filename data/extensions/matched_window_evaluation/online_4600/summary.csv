@@ -1,0 +1,3 @@
+learner,n_windows,degradation_windows,oracle_agreement,mean_confirmation_min,mean_waitall_min,mean_advance_min,early_fraction,reference_loss,threshold
+DT,46,22,1.0,180.19565217391303,391.4347826086956,211.2391304347826,0.9782608695652174,0.115,0.135
+LR,46,22,1.0,180.17391304347825,391.4347826086956,211.2608695652174,0.9782608695652174,0.115,0.135

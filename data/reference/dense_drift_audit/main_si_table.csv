@@ -1,0 +1,4 @@
+variant,runs,decisions,version_valid_decisions,version_invalid_decisions,valid_coverage_pct,all_decision_coverage_pct,mean_accuracy,mean_mcc,mean_confirmation_delay,max_pending_observed,runs_with_multi_pending,mean_multi_pending_event_steps,total_stale_trigger_violations,total_stale_update_violations,total_single_pending_drops,total_updates,total_fp,total_fn
+FULL_PROTOCOL,360,2444,2444,0,37.71604938271605,37.71604938271605,0.5144135802469136,0.02911081850141724,125.01841323799655,4,328,203.74444444444444,0,0,0,623,0,0
+SINGLE_PENDING,360,1915,1915,0,29.55246913580247,29.55246913580247,0.5109645061728395,0.021942999690406306,140.1485593650177,1,0,0.0,0,0,1388,581,0,0
+NO_STALE_GUARD,360,2356,1786,570,27.561728395061728,36.358024691358025,0.5117422839506173,0.022886745887357677,270.9120592524759,4,331,317.1694444444444,397,342,0,901,0,0

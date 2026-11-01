@@ -1,0 +1,4 @@
+delinquency_threshold_months,all_events,observable_labels,unresolved_or_censored,positives,positive_rate,mean_maturity_delay_months,windows_100,windows_without_positive,windows_with_3plus_positive,eligible_temporal_splits
+1,18000,16053,1947,801,0.04989721547374323,10.701800286550801,160,3,127,55
+2,18000,16024,1976,255,0.0159136295556665,10.929480778831753,160,55,28,46
+3,18000,16013,1987,145,0.009055142696559045,10.965965153312933,160,92,17,30

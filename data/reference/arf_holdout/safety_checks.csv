@@ -1,0 +1,7 @@
+strategy,check,pass,value
+FULL_COMPLETE_COHORT,oracle agreement == 1,True,1.0
+FULL_COMPLETE_COHORT,false positives == 0,True,0.0
+FULL_COMPLETE_COHORT,false negatives == 0,True,0.0
+WAIT_ALL_COMPLETE_COHORT,oracle agreement == 1,True,1.0
+WAIT_ALL_COMPLETE_COHORT,false positives == 0,True,0.0
+WAIT_ALL_COMPLETE_COHORT,false negatives == 0,True,0.0

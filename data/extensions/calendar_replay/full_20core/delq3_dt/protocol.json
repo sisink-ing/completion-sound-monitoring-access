@@ -1,0 +1,28 @@
+{
+  "dataset": "Freddie Mac 2017-2022 sample; labels reconstructed in Step40",
+  "task": "delq3",
+  "learner": "DT",
+  "training_n": 200,
+  "calibration_n": 200,
+  "window_n": 100,
+  "epsilon": 0.02,
+  "complete_training_n": 100,
+  "soft_q": 30,
+  "post_update_calibration_n": 100,
+  "month_clock_start": "2020-01",
+  "month_clock_last": "2025-04",
+  "new_event_last_month": "2024-04",
+  "simulated_feedback_rule": "predictions in same month before maturity at month-end; empty months explicit",
+  "unknown_labels": "never released or trained on; oracle of affected windows UNOBSERVABLE",
+  "simulator": "new calendar scheduler calling original 20C/20D primitives; not identical to original 20D.run_one",
+  "source_lineage": "Step40 redefines loan outcome as delinquency before voluntary payoff competing exit",
+  "actual_bank_receipt_times": "not available",
+  "publication_ready": false,
+  "remaining_gaps": [
+    "Real bank receipt timestamps not observed",
+    "End-of-report-month chronology assumed",
+    "ADWIN calendar-consistent baseline not yet implemented",
+    "Initial training cohort selected from 400 known pre-cutoff loans",
+    "Training and feature preprocessing sensitivity/independent seeds needed"
+  ]
+}

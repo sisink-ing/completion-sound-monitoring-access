@@ -1,0 +1,35 @@
+{
+  "python": "3.12.14",
+  "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "scipy": "1.17.0",
+  "role": "Explicit-method revision reanalysis; not a claim about the unrecorded original runtime.",
+  "input_sha256": "b42c61d0048b449083dfa9545bd61c3b26bcbd84f4ef455e82ea738049a0921b",
+  "archive_sha256": "e009bfe135f6fedaec777de6b3c4980603aeda2a6dae812f04fbaf916fdc4e6e",
+  "n_streams": 50,
+  "n_families": 5,
+  "streams_per_family": 10,
+  "tests": 12,
+  "maximum_absolute_errors_vs_archive": {
+    "mean_difference": 0.0,
+    "ci95_low": 0.0,
+    "ci95_high": 0.0,
+    "p_wilcoxon": 0.0,
+    "p_holm_12": 0.0
+  },
+  "all_p_values_match_archived_table8_to_displayed_precision": true,
+  "all_bootstrap_intervals_match_archived_table8_to_displayed_precision": true,
+  "wait_all_accuracy": {
+    "n_total": 50,
+    "n_zero": 36,
+    "n_effective": 14,
+    "R_plus": 74,
+    "R_minus": 31,
+    "W": 31,
+    "two_sided_extreme_sign_patterns": 3174,
+    "all_sign_patterns": 16384,
+    "p_exact": 0.1937255859375,
+    "p_holm_12": 0.77490234375
+  }
+}

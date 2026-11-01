@@ -1,0 +1,10 @@
+{
+  "source": "BTS ATL 2024 Jan-Mar, arrival-driven proxy feedback (not observed human verification timestamps)",
+  "n_predictions": 4600,
+  "mean_delay_minutes": 137.83152173913044,
+  "median_delay_minutes": 119.0,
+  "adjacent_inversions": 2188,
+  "later_predictions_overtaking_any_earlier_prediction": 4456,
+  "labels_after_last_prediction": 67,
+  "prestream_at_prediction_ties": "prediction before feedback on identical timestamp"
+}

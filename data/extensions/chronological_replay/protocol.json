@@ -1,0 +1,24 @@
+{
+  "dataset": "Freddie Mac",
+  "experiment": "retrospective_monthly_replay",
+  "label_definition": "3+ delinquency in 12 months",
+  "label_timing": "derived_from_monthly_reports",
+  "actual_internal_bank_feedback": false,
+  "initial_train": 200,
+  "initial_calibration": 200,
+  "window_size": 100,
+  "epsilon": 0.02,
+  "training_cohort": 100,
+  "post_update_calibration": 100,
+  "soft_q": 30,
+  "split_month": 24221,
+  "online_events": 5210,
+  "data_counts": {
+    "origin_rows": 7200,
+    "performance_rows": 332851,
+    "eligible_loans": 6681,
+    "excluded_loans": 519,
+    "positive_loans": 50,
+    "negative_loans": 6631
+  }
+}

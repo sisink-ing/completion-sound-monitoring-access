@@ -1,0 +1,4 @@
+dataset,learner,scenario,delay_seed,strategy,update_time,alarm_time,alarm_to_update,training_mode,old_version,new_version,old_reference,train_size,train_class1_rate,train_min_event,train_max_event,cohort_start,cohort_end,cohort_class1_rate,cohort_missing_at_alarm
+FreddieMac,ARF,REAL_MONTHLY_REPLAY,2026,FULL_SOFT_Q30,4407,2409,1998,SOFT_Q30,0,1,0.015,100,0.3,652,3600,600,699,0.04,83
+FreddieMac,ARF,REAL_MONTHLY_REPLAY,2026,FULL_COMPLETE_COHORT,3879,2409,1470,COMPLETE_COHORT,0,1,0.015,100,0.04,600,699,600,699,0.04,83
+FreddieMac,ARF,REAL_MONTHLY_REPLAY,2026,WAIT_ALL_COMPLETE_COHORT,3879,3878,1,COMPLETE_COHORT,0,1,0.015,100,0.04,600,699,600,699,0.04,0

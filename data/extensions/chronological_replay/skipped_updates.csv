@@ -1,0 +1,3 @@
+dataset,learner,scenario,delay_seed,strategy,alarm_time,skip_time,reason,cohort_start,cohort_end,cohort_class1_rate
+FreddieMac,LR,REAL_MONTHLY,2026,FULL_COMPLETE_COHORT,5423,5424,single_class_complete_cohort,4248,4347,0.0
+FreddieMac,LR,REAL_MONTHLY,2026,WAIT_ALL_COMPLETE_COHORT,5423,5424,single_class_complete_cohort,4248,4347,0.0

@@ -1,0 +1,70 @@
+{
+  "initial_training": 200,
+  "initial_calibration": 200,
+  "window_size": 100,
+  "epsilon": 0.02,
+  "post_update_calibration": 100,
+  "complete_cohort_size": 100,
+  "soft_minimum_per_class": 30,
+  "lrdt_stream_seeds": [
+    6001,
+    6002,
+    6003,
+    6004,
+    6005,
+    6006,
+    6007,
+    6008,
+    6009,
+    6010
+  ],
+  "lrdt_delay_seeds": [
+    7001,
+    7002,
+    7003,
+    7004,
+    7005
+  ],
+  "arf_stream_seeds": [
+    6101,
+    6102,
+    6103,
+    6104,
+    6105,
+    6106,
+    6107,
+    6108,
+    6109,
+    6110
+  ],
+  "arf_delay_seeds": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005
+  ],
+  "poisson_class_means": [
+    [
+      100,
+      100
+    ],
+    [
+      50,
+      100
+    ],
+    [
+      30,
+      150
+    ],
+    [
+      20,
+      200
+    ],
+    [
+      200,
+      20
+    ]
+  ],
+  "role": "Documented original settings; drivers retain their original constants."
+}

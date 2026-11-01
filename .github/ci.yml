@@ -1,0 +1,16 @@
+name: research-code-checks
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r environments/requirements-verified.txt
+      - run: python scripts/verify_integrity.py
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/check_protocol.py
+      - run: python scripts/reproduce_statistics.py
+      - run: python experiments/real_world/replay_retailrocket.py

@@ -1,0 +1,2 @@
+action,time,detector_alarm_time,version,episode,cohort_start,cohort_end,returned_at_lock,adwin_inputs,adwin_width,adwin_mean,dataset,stream_seed,scenario,delay_seed
+LOCKED,3878,3878,0,0,3700,3799,0,608,544,0.029411764705882353,FreddieMac,2026,REAL_MONTHLY_REPLAY,2026

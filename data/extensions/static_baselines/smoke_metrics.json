@@ -1,0 +1,16 @@
+{
+  "Static_LR": {
+    "online_rows": 4600,
+    "accuracy": 0.8678260869565217,
+    "macro_f1": 0.46461824953445063,
+    "mcc": 0.0,
+    "predicted_positive_rate": 0.0
+  },
+  "Static_DT": {
+    "online_rows": 4600,
+    "accuracy": 0.8639130434782609,
+    "macro_f1": 0.4650781243033904,
+    "mcc": -0.016033450772835325,
+    "predicted_positive_rate": 0.004347826086956522
+  }
+}

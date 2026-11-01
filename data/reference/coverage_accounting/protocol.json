@@ -1,0 +1,15 @@
+{
+  "runs": 2500,
+  "online_events": 4500000,
+  "collected_coverage_pct": 57.483266666666665,
+  "resolved_coverage_pct": 44.397777777777776,
+  "resolved_online_pct": 41.01111111111111,
+  "resolved_post_stream_pct": 3.3866666666666667,
+  "collected_unresolved_pct": 13.08548888888889,
+  "not_collected_pct": 42.516733333333335,
+  "decisions": 19979,
+  "updates": 5885,
+  "unit": "Event mass: each online event is assigned exactly one mutually exclusive terminal state.",
+  "post_stream": "Decision time exceeds last input-event time; delayed labels may still be released.",
+  "limitations": "No full-stream drift recall is inferred. Unresolved status is not itself evidence of an actual degradation."
+}

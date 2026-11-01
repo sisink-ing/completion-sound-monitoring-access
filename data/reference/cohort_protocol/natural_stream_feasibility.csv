@@ -1,0 +1,3 @@
+﻿dataset,n_samples,n_features,class0_total,class1_total,train_class0,train_class1,monitor_class0,monitor_class1,mean_block_minority,min_block_minority
+Electricity,5000,7,3052,1948,101,99,2834,1766,34.91304347826087,8
+Weather,5000,8,3514,1486,130,70,3234,1366,29.608695652173914,12

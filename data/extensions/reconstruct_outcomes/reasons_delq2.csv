@@ -1,0 +1,8 @@
+reason,count
+matured_no_event,15888
+voluntary_payoff_competing_event,1808
+delinquency_event,252
+other_exit_96,30
+already_closed_at_anchor,11
+same_month_event_exit_ambiguous,6
+not_current_at_anchor,5

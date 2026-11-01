@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "source24": "result/24_final_arrived_only_stress_test",
+  "source25": "result/25",
+  "n_strategies": 3,
+  "task_count_per_strategy": 2500,
+  "decision_counts": {
+    "ARRIVED_ONLY_COMPLETE_COHORT": 21574,
+    "FULL_COMPLETE_COHORT": 19979,
+    "WAIT_ALL_COMPLETE_COHORT": 20510
+  },
+  "definitions": {
+    "run_macro": "Equal-weight mean of individual-run resolved-window agreement",
+    "pooled": "Total correct resolved decisions divided by all resolved decisions",
+    "cell_macro": "Equal-weight mean of 500 cells defined by dataset, stream seed, learner and scenario; delay seeds pooled within cells",
+    "FP": "DEGRADATION versus TOLERABLE Oracle",
+    "FN": "TOLERABLE versus DEGRADATION Oracle",
+    "delay_run_macro": "Mean of run-level average delays",
+    "delay_pooled": "Mean delay over all resolved windows"
+  },
+  "note": "Table 4 uses run-macro agreement and delay, but pooled FP/FN counts. Step25 main table uses decision-pooled aggregation. Different strategies can have different resolved-window sets."
+}

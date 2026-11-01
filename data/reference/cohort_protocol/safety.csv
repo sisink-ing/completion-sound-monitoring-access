@@ -1,0 +1,4 @@
+﻿strategy,runs,nonperfect_runs,false_positive,false_negative,decision_accuracy,decision_delay,alarm_to_update,retrain_mean
+FULL_SOFT_Q30,400,0,0,0,1.0,65.57853799875659,58.280877164502165,4.53
+FULL_COMPLETE_COHORT,400,0,0,0,1.0,68.13419710924647,86.588814484127,4.92
+WAIT_ALL_COMPLETE_COHORT,400,0,0,0,1.0,158.92733320014696,1.0,4.9425

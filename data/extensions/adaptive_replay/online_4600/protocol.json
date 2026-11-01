@@ -1,0 +1,18 @@
+{
+  "scope": "BTS adaptation pilot: static, early-confirm Complete Cohort, Wait-All Complete",
+  "time_axis": "UTC minute reconstructed labels released at next prediction event; prediction-before-feedback at ties",
+  "feedback_proxy": "actual flight completion plus an ASSUMED 10-minute processing buffer",
+  "training": "fixed triggering window with all labels; skip update if only one class",
+  "model_preprocessing": "Step 04 LR/DT pipelines; identical settings across methods",
+  "calibration": "100 fresh predictions of each successful new version, wait for all labels",
+  "window_size": 100,
+  "n_online": 4600,
+  "post_stream": "remaining labels are flushed for historical decisions; no new model training is run without future inputs",
+  "limitations": [
+    "Experimental BTS port; independently validate step ordering against original paper implementation before submission",
+    "Same-window matched differences are NOT estimated from independently adapted strategy windows",
+    "Only 3 methods here. Soft-q30, Arrived-Only, Stale ablation and fixed-trigger audit need separate controlled tests",
+    "Real flight labels, but NOT observed label-verification log times",
+    "Retrospectively excludes canceled/diverted flights, not a true operational prospective sample"
+  ]
+}

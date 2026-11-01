@@ -1,0 +1,14 @@
+check,pass,value
+expected base cases,True,100
+expected raw rows,True,9500 / 9500
+FULL_SOFT_Q30: all schedules present,True,"min=31, max=31"
+FULL_COMPLETE_COHORT: all schedules present,True,"min=31, max=31"
+WAIT_ALL_COMPLETE_COHORT: all schedules present,True,"min=31, max=31"
+STATIC prediction invariant under original vs perturbation,True,0.0
+FULL_COMPLETE_COHORT: oracle agreement == 1,True,1.0
+FULL_COMPLETE_COHORT: total FP == 0,True,0
+FULL_COMPLETE_COHORT: total FN == 0,True,0
+WAIT_ALL_COMPLETE_COHORT: oracle agreement == 1,True,1.0
+WAIT_ALL_COMPLETE_COHORT: total FP == 0,True,0
+WAIT_ALL_COMPLETE_COHORT: total FN == 0,True,0
+multiple legal return orders per case,True,"min=31, mean=31.00"

@@ -1,0 +1,2 @@
+task,learner,model_version,block_hash,block_start_event,block_end_event,complete_decision_month,wait_decision_month,complete_decision,wait_decision,same_decision,complete_labels,wait_labels,advance_months,oracle_evaluable
+1,LR,0,0e5d2073f81d416436f5c6bf0b88bb58b5ecbe6707bc4253b47950ca5871e514,700,799,2020-08,2021-02,DEGRADATION,DEGRADATION,1,14,100,6,1

@@ -1,0 +1,4 @@
+task,total,online_events,observed_labels,unresolved_labels,payoff_labels,positives,warmup_train,train_positives,warmup_cal,cal_positives,online_windows,complete_windows,online_unknown
+delq1,18000,9284,17955,45,1779,804,200,6,200,12,92,75,19
+delq2,18000,9284,17948,52,1808,252,200,1,200,4,92,75,20
+delq3,18000,9284,17953,47,1822,145,200,1,200,3,92,75,21

@@ -1,0 +1,6 @@
+check,pass
+Complete mean pairwise Jaccard == 1,True
+Complete has exactly one membership set per case,True
+Complete membership change rate == 0,True
+Complete class-ratio SD == 0,True
+Soft-q30 membership variability detected,True

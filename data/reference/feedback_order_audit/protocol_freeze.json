@@ -1,0 +1,61 @@
+{
+  "script": "28_global_return_order_stability",
+  "scientific_design": "Full-process return-order stability; triggering block not fixed.",
+  "stream_seeds": [
+    6101,
+    6102,
+    6103,
+    6104,
+    6105,
+    6106,
+    6107,
+    6108,
+    6109,
+    6110
+  ],
+  "delay_seeds": [
+    9001,
+    9002,
+    9003,
+    9004,
+    9005
+  ],
+  "delay_scenarios": {
+    "UNIFORM_100_100": [
+      100,
+      100
+    ],
+    "MILD_50_100": [
+      50,
+      100
+    ],
+    "MEDIUM_30_150": [
+      30,
+      150
+    ],
+    "SEVERE_20_200": [
+      20,
+      200
+    ],
+    "REVERSED_200_20": [
+      200,
+      20
+    ]
+  },
+  "window_size": 100,
+  "epsilon": 0.02,
+  "arf_random_seed": 2026,
+  "cases_per_dataset_scenario": 4,
+  "base_cases": 100,
+  "perturbations": 30,
+  "schedules_per_case": 31,
+  "core_strategies": [
+    "FULL_SOFT_Q30",
+    "FULL_COMPLETE_COHORT",
+    "WAIT_ALL_COMPLETE_COHORT"
+  ],
+  "return_order_perturbation": "Exact class-conditioned delay multiset permutation.",
+  "master_seed": 28028,
+  "scientific_rule": "Formal Step-28 settings are frozen before inspecting formal Step-28 results.",
+  "implementation_version": "v2_case_parallel_high_performance"
+}

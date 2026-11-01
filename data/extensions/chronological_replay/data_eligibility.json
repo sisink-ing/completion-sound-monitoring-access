@@ -1,0 +1,8 @@
+{
+  "origin_rows": 7200,
+  "performance_rows": 332851,
+  "eligible_loans": 6681,
+  "excluded_loans": 519,
+  "positive_loans": 50,
+  "negative_loans": 6631
+}

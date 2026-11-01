@@ -1,0 +1,42 @@
+{
+  "script": "27_arf_strong_backbone_holdout",
+  "datasets": [
+    "SEA",
+    "Agrawal",
+    "Mixed",
+    "RandomTree",
+    "Sine"
+  ],
+  "stream_seeds": [
+    6101,
+    6102,
+    6103,
+    6104,
+    6105,
+    6106,
+    6107,
+    6108,
+    6109,
+    6110
+  ],
+  "delay_seeds": [
+    8001,
+    8002,
+    8003,
+    8004,
+    8005
+  ],
+  "learner": "scikit-multiflow AdaptiveRandomForestClassifier",
+  "arf_random_seed": 2026,
+  "window_size": 100,
+  "epsilon": 0.02,
+  "update_cohort_size": 100,
+  "post_update_calibration_size": 100,
+  "strategies": [
+    "STATIC",
+    "FULL_SOFT_Q30",
+    "FULL_COMPLETE_COHORT",
+    "WAIT_ALL_COMPLETE_COHORT"
+  ],
+  "scientific_rule": "Formal stream and delay seeds are frozen before inspecting formal ARF results."
+}

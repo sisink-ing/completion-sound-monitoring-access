@@ -1,0 +1,14 @@
+{
+  "tasks_per_method": 1250,
+  "total_method_runs": 6250,
+  "independent_streams": 50,
+  "delay_seed_count": 5,
+  "detector": "scikit-multiflow ADWIN",
+  "delta": 0.002,
+  "new_method": "Delayed-ADWIN-Arrival",
+  "detector_input": "Historical 0-1 prediction errors in label-arrival order. Only current monitoring episode and model version.",
+  "update_rule": "Lock latest closed 100-event window, wait for all 100 labels, then refit ARF.",
+  "calibration": "100 new-version predictions, all labels must return.",
+  "oracle_limitation": "ADWIN change detection is not fixed-window oracle classification.",
+  "evaluation_limitation": "This external baseline was added after inspection of previous holdout results."
+}

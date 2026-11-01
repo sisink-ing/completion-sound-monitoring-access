@@ -1,0 +1,10 @@
+task,learner,status,exit_code,log
+1,ARF,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq1_arf/run.log
+1,DT,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq1_dt/run.log
+1,LR,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq1_lr/run.log
+2,ARF,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq2_arf/run.log
+2,DT,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq2_dt/run.log
+2,LR,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq2_lr/run.log
+3,ARF,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq3_arf/run.log
+3,DT,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq3_dt/run.log
+3,LR,SUCCESS,0,/root/Creating/result/42_freddie_calendar_replay/full_20core/delq3_lr/run.log

@@ -1,0 +1,8 @@
+{
+  "scope": "STATIC LR/DT predictions, fixed nonoverlapping windows; matched stopping rules only",
+  "time_unit": "real UTC minutes (not event-time steps)",
+  "no_cohort_training": true,
+  "no_retraining": true,
+  "no_stale_guard_audit": true,
+  "feedback_times": "reconstructed from BTS arrival, with assumed 10-minute buffer"
+}

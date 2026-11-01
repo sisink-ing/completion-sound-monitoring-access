@@ -1,0 +1,21 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "scipy": "1.17.0",
+  "role": "Explicit-method revision reanalysis of archived LR/DT scores; not an original training environment.",
+  "input_sha256": "66cbd9668134b85dad2ee79a68747bca5141a8ecac5e33649ea7f839ce058ece",
+  "independent_streams": 50,
+  "families": 5,
+  "streams_per_family": 10,
+  "learner_count": 2,
+  "delay_regimes": 5,
+  "delay_seeds_per_cell": 5,
+  "input_cells": 2000,
+  "tests": 9,
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 30300,
+  "archived_means_medians_and_WTL_preserved_at_displayed_precision": true,
+  "all_nine_Holm_005_decisions_unchanged": true,
+  "changed_p_values_are_revision_estimates_not_changes_to_predictive_scores": true
+}

@@ -1,0 +1,20 @@
+{
+  "source": "Step31 original execution protocol and Step23 frozen streams",
+  "experiment": "Controlled synthetic dense concept inversions with delayed feedback",
+  "flip_periods": [
+    100,
+    200,
+    300
+  ],
+  "delay_patterns": [
+    "POISSON_150",
+    "ASYMMETRIC_50_300",
+    "BATCHED_200"
+  ],
+  "matched_tasks": 360,
+  "variant_runs": 1080,
+  "window_size": 100,
+  "epsilon": 0.02,
+  "runtime_seconds": 21.521,
+  "notes": "Fault-injection controls are not normal competing algorithms. Version-valid coverage excludes decisions made under mismatched model versions."
+}

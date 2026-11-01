@@ -1,0 +1,4 @@
+strategy,cases,mean_first_trigger_agreement_rate,mean_mean_trigger_jaccard_vs_original,mean_distinct_trigger_states,mean_alarm_time_sd,mean_first_training_state_agreement_rate,mean_mean_training_jaccard_vs_original,mean_distinct_training_states,mean_training_agreement_given_same_trigger,mean_training_jaccard_given_same_trigger,mean_final_accuracy_sd,mean_final_macro_f1_sd,mean_final_mcc_sd,mean_accuracy_range,mean_unique_return_orders
+FULL_SOFT_Q30,100,1.0,1.0,1.0,4.441420906662309,0.02,0.8623735264912904,30.39,0.0,0.8595648229502962,0.024619987670750833,0.030644655714719235,0.04439579181316847,0.09317222222222223,31.0
+FULL_COMPLETE_COHORT,100,1.0,1.0,1.0,4.441420906662309,1.0,1.0,1.0,1.0,1.0,0.01802625746719239,0.020890211762776736,0.03751507362443009,0.07096666666666666,31.0
+WAIT_ALL_COMPLETE_COHORT,100,1.0,1.0,1.0,7.544296125511136,1.0,1.0,1.0,1.0,1.0,0.018423460336022282,0.021179916270434935,0.0383737699796144,0.07171111111111111,31.0

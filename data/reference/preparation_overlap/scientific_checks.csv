@@ -1,0 +1,9 @@
+check,pass,value
+"exact 19,979 Complete decisions",True,19979
+"exact 6,188 degradation decisions",True,6188
+"exact 13,791 tolerable decisions",True,13791
+all frozen Table-5 anchors reproduced,True,3/3
+zero negative same-window leads,True,0
+minimum lead >= 0,True,0.0
+"gain(h) == min(h, confirmation lead)",True,True
+readiness difference exactly equals gain(h),True,True

@@ -1,0 +1,132 @@
+{
+  "natural": {
+    "source": "cohort_protocol.py",
+    "description": "Electricity and Weather chronological LR/DT comparison",
+    "output_name": "cohort_protocol"
+  },
+  "fresh_delay": {
+    "source": "fixed_stream_holdout.py",
+    "description": "Five fixed streams, fresh delay seeds 2056--2075",
+    "output_name": "fixed_stream_holdout"
+  },
+  "unseen": {
+    "source": "unseen_stream_holdout.py",
+    "description": "Regenerated LR/DT streams, seeds 6001--6010",
+    "output_name": "unseen_stream_pipeline",
+    "call": "step23.main",
+    "requires": [
+      "river"
+    ],
+    "smoke": true,
+    "smoke_env": [
+      "STREAM_SMOKE"
+    ]
+  },
+  "confirmation": {
+    "source": "confirmation_comparison.py",
+    "description": "Arrived-Only, completion bounds and Wait-All; 2500 tasks",
+    "output_name": "confirmation_comparison",
+    "requires": [
+      "river"
+    ],
+    "smoke": true,
+    "smoke_env": [
+      "STRESS_SMOKE"
+    ]
+  },
+  "confirmation_summary": {
+    "source": "confirmation_efficiency.py",
+    "description": "Archived confirmation-efficiency summaries",
+    "output_name": "confirmation_efficiency",
+    "top_level": true
+  },
+  "fixed_trigger": {
+    "source": "cohort_membership_audit.py",
+    "description": "Cohort membership under a fixed triggering window",
+    "output_name": "cohort_membership_audit",
+    "smoke": true,
+    "smoke_env": [
+      "RETURN_ORDER_SMOKE"
+    ]
+  },
+  "arf": {
+    "source": "arf_holdout.py",
+    "description": "Common ARF holdout on 50 frozen streams",
+    "output_name": "arf_holdout",
+    "requires": [
+      "skmultiflow"
+    ],
+    "arguments": [
+      "--stage",
+      "evaluate"
+    ],
+    "native_jobs": true,
+    "smoke": true,
+    "native_smoke": true
+  },
+  "full_process": {
+    "source": "feedback_order_audit.py",
+    "description": "Full-process feedback-order replay",
+    "output_name": "feedback_order_audit",
+    "requires": [
+      "skmultiflow"
+    ],
+    "native_jobs": true,
+    "smoke": true,
+    "native_smoke": true
+  },
+  "preparation": {
+    "source": "preparation_overlap.py",
+    "description": "Matched-window preparation-overlap analysis",
+    "output_name": "preparation_overlap",
+    "top_level": true
+  },
+  "adwin": {
+    "source": "delayed_adwin.py",
+    "description": "Delayed-ADWIN on the common ARF tasks",
+    "output_name": "delayed_adwin",
+    "requires": [
+      "skmultiflow"
+    ],
+    "native_jobs": true,
+    "smoke": true,
+    "native_smoke": true
+  },
+  "protocol_ablation": {
+    "source": "protocol_ablation.py",
+    "description": "Multiple pending windows, stale guard and historical predictions",
+    "output_name": "protocol_ablation",
+    "native_jobs": true,
+    "smoke": true,
+    "native_smoke": true
+  },
+  "dense_change": {
+    "source": "dense_drift_audit.py",
+    "description": "Dense-change and batched-feedback protocol audit",
+    "output_name": "dense_drift_audit",
+    "native_jobs": true,
+    "smoke": true,
+    "native_smoke": true
+  },
+  "coverage": {
+    "source": "coverage_accounting.py",
+    "description": "Mutually exclusive event-mass coverage accounting",
+    "output_name": "coverage_accounting",
+    "native_jobs": true,
+    "smoke": true,
+    "native_smoke": true
+  },
+  "statistical_audit": {
+    "source": "statistical_audit.py",
+    "description": "Historical aggregation and paired-window audit",
+    "output_name": "statistical_audit"
+  },
+  "seed_check": {
+    "source": "stream_reproducibility.py",
+    "description": "River stream-seed determinism audit",
+    "requires": [
+      "river"
+    ],
+    "top_level": true
+  }
+}
