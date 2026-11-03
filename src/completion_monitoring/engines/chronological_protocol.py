@@ -166,7 +166,7 @@ def soft_coverage_from_list(available, y):
     extra = candidates[:remaining_needed]
     train_ids = np.asarray(sorted(selected0 + selected1 + extra), dtype=int)
     if len(train_ids) != UPDATE_TRAIN_SIZE:
-        raise RuntimeError('训练集数量错误。')
+        raise RuntimeError('Unexpected training-set size.')
     return train_ids
 
 def get_selective_training_ids(current_time, alarm_anchor, arrival_map, y):
@@ -389,7 +389,7 @@ def main():
     print('=' * 150)
     print('NATURAL CHRONOLOGICAL REAL-WORLD VALIDATION')
     print('=' * 150)
-    print('固定样本数：', MAX_SAMPLES)
+    print('Fixed observation count: ', MAX_SAMPLES)
     print('Window：', WINDOW_SIZE)
     print('Epsilon：', EPSILON)
     print('q：', MIN_CLASS_COVERAGE)
@@ -410,10 +410,10 @@ def main():
     expected = len(tasks) * len(STRATEGIES)
     print()
     print('=' * 150)
-    print('开始20C')
+    print('Starting the chronological benchmark')
     print('=' * 150)
-    print('独立任务：', len(tasks))
-    print('理论结果：', expected)
+    print('Tasks: ', len(tasks))
+    print('Expected result rows: ', expected)
     results = Parallel(n_jobs=CPU_JOBS, backend='loky', verbose=10, batch_size=1, pre_dispatch='2*n_jobs')((delayed(run_task)(*task) for task in tasks))
     all_runs = []
     all_decisions = []
@@ -426,9 +426,9 @@ def main():
     decision_df = pd.DataFrame(all_decisions)
     update_df = pd.DataFrame(all_updates)
     print()
-    print('实际结果：', len(raw_df))
+    print('Actual result rows: ', len(raw_df))
     if len(raw_df) != expected:
-        raise RuntimeError('20C结果不完整。')
+        raise RuntimeError('The chronological benchmark results are incomplete.')
     overall_df = raw_df.groupby('strategy').agg(runs=('accuracy', 'count'), accuracy_mean=('accuracy', 'mean'), accuracy_std=('accuracy', 'std'), macro_f1_mean=('macro_f1', 'mean'), mcc_mean=('mcc', 'mean'), retrain_mean=('retrain_count', 'mean'), decision_accuracy=('decision_accuracy', 'mean'), decision_delay=('decision_delay', 'mean'), false_positive=('false_positive', 'sum'), false_negative=('false_negative', 'sum'), monitor_coverage=('monitor_coverage', 'mean')).reset_index()
     dataset_df = raw_df.groupby(['dataset', 'strategy']).agg(runs=('accuracy', 'count'), accuracy_mean=('accuracy', 'mean'), macro_f1_mean=('macro_f1', 'mean'), mcc_mean=('mcc', 'mean'), retrain_mean=('retrain_count', 'mean'), decision_accuracy=('decision_accuracy', 'mean'), decision_delay=('decision_delay', 'mean'), false_positive=('false_positive', 'sum'), false_negative=('false_negative', 'sum')).reset_index()
     dataset_learner_df = raw_df.groupby(['dataset', 'learner', 'strategy']).agg(runs=('accuracy', 'count'), accuracy_mean=('accuracy', 'mean'), macro_f1_mean=('macro_f1', 'mean'), mcc_mean=('mcc', 'mean'), retrain_mean=('retrain_count', 'mean'), decision_accuracy=('decision_accuracy', 'mean'), decision_delay=('decision_delay', 'mean'), false_positive=('false_positive', 'sum'), false_negative=('false_negative', 'sum')).reset_index()
@@ -488,7 +488,7 @@ def main():
     elapsed = time.perf_counter() - total_start
     print()
     print('=' * 150)
-    print('输出文件')
+    print('Output files')
     print('=' * 150)
     for path in paths.values():
         print(path)
@@ -499,12 +499,12 @@ def main():
     print()
     print('=' * 150)
     if int(full_safety['nonperfect_runs']) == 0 and int(full_safety['false_positive']) == 0 and (int(full_safety['false_negative']) == 0):
-        print('NATURAL REAL STREAM：FULL安全检查通过 ')
+        print('Chronological benchmark: FULL safety checks passed: ')
     else:
-        print('NATURAL REAL STREAM：FULL存在异常 ')
+        print('Chronological benchmark: FULL safety checks failed: ')
     print()
-    print('重要：20C使用原始时间顺序，不使用人工漂移生成。')
-    print('禁止根据20C结果重新修改：W / epsilon / q / Update Size / Calibration Size / 5000样本长度。')
+    print('The benchmark preserves the original chronological order without injecting artificial drift.')
+    print('Window size, epsilon, q, update size, calibration size, and the 5,000-observation stream length remain fixed for this benchmark.')
     print('=' * 150)
 if __name__ == '__main__':
     main()

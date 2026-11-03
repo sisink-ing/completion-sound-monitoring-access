@@ -22,14 +22,14 @@ def prepare(task, limit):
     rcol = f'ready{task}'
     history = df[(df.event_month < CUTOFF) & df[ycol].isin([0, 1]) & (df[rcol] < CUTOFF) & (df.event_month + 12 < CUTOFF)].head(400)
     if len(history) != 400:
-        raise RuntimeError('历史数据不足400笔')
+        raise RuntimeError('At least 400 historical observations are required.')
     if history.iloc[:200][ycol].nunique() != 2:
-        raise RuntimeError('初始训练集只有一个类别')
+        raise RuntimeError('The initial training set contains only one class.')
     online = df[df.event_month >= CUTOFF]
     if limit > 0:
         online = online.head(limit)
     if len(online) < 100:
-        raise RuntimeError('在线数据不足100笔')
+        raise RuntimeError('At least 100 online observations are required.')
     data = pd.concat([history, online], ignore_index=True)
     values = data[FEATURES].apply(pd.to_numeric, errors='coerce')
     bounds = {'fico': (300, 850), 'cltv': (0, 200), 'dti': (0, 100), 'orig_upb': (1000, 10000000), 'ltv': (0, 200), 'orig_int_rt': (0.01, 30), 'orig_loan_term': (1, 600), 'cnt_borr': (1, 10)}
@@ -84,7 +84,7 @@ def run(task, limit, learners, enable_adwin):
 
     def real_feedback(_y, *_):
         if len(_y) != len(y):
-            raise RuntimeError('反馈数据长度不匹配')
+            raise RuntimeError('The feedback data lengths do not match.')
         return (arrivals, groups)
     base.generate_delay = real_feedback
     engine.base.generate_delay = real_feedback
@@ -171,5 +171,5 @@ if __name__ == '__main__':
     parser.add_argument('--adwin', action='store_true')
     args = parser.parse_args()
     if args.adwin and 'ARF' not in args.models:
-        parser.error('--adwin需要同时指定ARF')
+        parser.error('--adwin requires the ARF learner.')
     run(args.task, args.limit_online, args.models, args.adwin)

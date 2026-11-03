@@ -22,4 +22,4 @@ SOFTWARE.
 
 Third-party generator code retains its original MIT notice in
 third_party/creating_drift_benchmarks/LICENSE. Dataset rights are separate;
-see data/README.md and THIRD_PARTY_NOTICES.md.
+see docs/data.md and THIRD_PARTY_NOTICES.md.

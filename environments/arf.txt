@@ -1,1 +1,23 @@
-scikit-multiflow
+# Validated Linux x86_64 replay environment: Python 3.9.25.
+# Install arf-bootstrap.txt first, then this file with --no-build-isolation.
+contourpy==1.3.0
+cycler==0.12.1
+Cython==0.29.36
+fonttools==4.60.2
+joblib==1.2.0
+kiwisolver==1.4.7
+matplotlib==3.6.3
+numpy==1.23.5
+packaging==26.3
+pandas==1.5.3
+pillow==11.3.0
+pyparsing==3.3.3
+python-dateutil==3.0.0
+pytz==2026.6
+scikit-learn==1.1.3
+scikit-multiflow==0.5.3
+scipy==1.9.3
+six==1.17.0
+sortedcontainers==2.4.0
+threadpoolctl==3.1.0
+tzdata==2026.6

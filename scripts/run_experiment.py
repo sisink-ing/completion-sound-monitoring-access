@@ -34,7 +34,7 @@ def main() -> int:
         parser.error('This archived driver has no smoke mode. Use scripts/check_protocol.py for a short protocol check.')
     missing = [name for name in config.get('requires', []) if importlib.util.find_spec(name) is None]
     if missing:
-        parser.error('Missing dependencies: ' + ', '.join(missing) + '. See docs/ENVIRONMENTS.md.')
+        parser.error('Missing dependencies: ' + ', '.join(missing) + '. See docs/environment.md.')
     output = (args.output or ROOT / 'results' / args.experiment).resolve()
     activate_sources()
     work = prepare_workspace(output, config.get('output_name'))

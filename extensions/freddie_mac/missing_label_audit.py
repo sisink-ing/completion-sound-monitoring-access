@@ -17,7 +17,7 @@ def month_index(col):
     return (yy * 12 + mm - 1).where(good)
 base = pd.read_csv(SOURCE / 'events_delq1.csv', dtype={'id_loan': str})
 if base.id_loan.duplicated().any():
-    raise ValueError('存在重复贷款ID')
+    raise ValueError('Duplicate loan IDs.')
 base['t0'] = pd.to_numeric(base.t0, errors='coerce')
 base['year'] = pd.to_numeric(base.year, errors='coerce')
 years = sorted(set(base.year.dropna().astype(int)))

@@ -1,0 +1,5 @@
+# Build dependencies for scikit-multiflow 0.5.3 on Python 3.9.
+numpy==1.23.5
+Cython==0.29.36
+setuptools==59.8.0
+wheel==0.38.4

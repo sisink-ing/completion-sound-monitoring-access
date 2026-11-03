@@ -68,7 +68,7 @@ def load_step24_module():
         return STEP24_MODULE
     step24_path = str(source_file('confirmation_comparison.py'))
     if not os.path.exists(step24_path):
-        raise FileNotFoundError('找不到 confirmation_comparison.py。\n请确认当前目录是 the project directory。')
+        raise FileNotFoundError('Cannot find confirmation_comparison.py.\nRun from the experiment working directory.')
     spec = importlib.util.spec_from_file_location('step24_for_step26', step24_path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -226,10 +226,10 @@ def select_cases():
     required_columns = ['dataset', 'stream_seed', 'learner', 'scenario', 'lambda0', 'lambda1', 'delay_seed', 'strategy', 'block_id', 'decision', 'correct', 'decision_time', 'block_close_time', 'labels_at_decision']
     missing = [column for column in required_columns if column not in decision_df.columns]
     if missing:
-        raise RuntimeError('confirmation comparison decision CSV 缺少字段：' + str(missing))
+        raise RuntimeError('Missing columns in the confirmation-comparison decision CSV: ' + str(missing))
     candidates = decision_df[(decision_df['strategy'] == 'FULL_COMPLETE_COHORT') & (decision_df['decision'] == 'DEGRADATION') & (decision_df['correct'] == 1)].copy()
     if len(candidates) == 0:
-        raise RuntimeError('confirmation comparison 中没有找到 FULL_COMPLETE_COHORT 的正确 DEGRADATION decisions。')
+        raise RuntimeError('No correct FULL_COMPLETE_COHORT degradation decisions were found in the confirmation comparison.')
     task_columns = ['dataset', 'stream_seed', 'learner', 'scenario', 'delay_seed']
     candidates = candidates.sort_values(task_columns + ['decision_time']).drop_duplicates(subset=task_columns, keep='first').reset_index(drop=True)
     selected_cases = []
@@ -255,7 +255,7 @@ def select_cases():
                 break
         print(f'{scenario}: selected {accepted} valid cases')
     if len(selected_cases) == 0:
-        raise RuntimeError('没有可用于 cohort-membership audit 的有效 alarm case。')
+        raise RuntimeError('No valid alarm cases are available for the cohort-membership audit.')
     return selected_cases
 
 def run_case(case):

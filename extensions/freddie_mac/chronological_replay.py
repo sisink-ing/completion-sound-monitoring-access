@@ -20,7 +20,7 @@ PERF_POS = {'id_loan': 0, 'period': 1, 'delq_sts': 3}
 KNOWN_IDS = None
 
 def month_number(values):
-    """将YYYYMM转换为整数月份索引。"""
+    """Convert YYYYMM to an integer month index."""
     x = pd.to_numeric(pd.Series(values), errors='coerce')
     year = (x // 100).astype('Int64')
     month = (x % 100).astype('Int64')
@@ -31,11 +31,9 @@ def month_number(values):
 
 def read_table(path, kind):
     """
-    支持：
-    1. 有字段名的CSV
-    2. 较早版Freddie Mac管道分隔TXT
+    Read CSV files with headers or legacy Freddie Mac pipe-delimited TXT files.
 
-    若官方数据布局改变，须先修正字段映射。
+    Update the field mapping if the provider changes its data layout.
     """
     global KNOWN_IDS
     path = Path(path)
@@ -69,17 +67,12 @@ def read_table(path, kind):
 
 def build_events(orig_files, perf_files, per_year, seed):
     """
-    构建二分类任务：
+    Construct the binary loan-outcome task.
 
-    正类：
-        12个月内首次观测到逾期状态 >= 3
-
-    负类：
-        12个月逐月记录完整，
-        且始终没有达到该逾期状态。
-
-    观察期不完整的贷款暂时排除，
-    并记录排除数量。
+    A positive outcome is the first observed delinquency status >= 3 within
+    12 months. A negative outcome requires complete monthly records over
+    12 months without reaching that status. Exclude loans with incomplete
+    observation horizons and record the excluded count.
     """
     global KNOWN_IDS
     origins = pd.concat([read_table(p, 'orig') for p in orig_files], ignore_index=True).drop_duplicates('id_loan')
@@ -125,12 +118,10 @@ def build_events(orig_files, perf_files, per_year, seed):
 
 def choose_split(df, min_online):
     """
-    严格时间切分。
+    Split observations chronologically.
 
-    初始200训练+200校准的真实标签，
-    必须在在线测试开始前就已成熟。
-
-    防止使用未来贷款结果训练过去模型。
+    Labels for the initial 200 training and 200 calibration observations
+    must mature before online testing begins, preserving causal training.
     """
     for start in sorted(df.event_month.unique()):
         historical = df[(df.event_month < start) & (df.label_month < start)]
@@ -144,16 +135,14 @@ def choose_split(df, min_online):
             continue
         output = pd.concat([warmup, online], ignore_index=True)
         return (output, int(start))
-    raise ValueError('无法形成无时间泄漏的200/200训练校准集。请使用多个年份的数据，不能只用2020Q1。')
+    raise ValueError('Cannot construct a causal 200/200 training/calibration split. Supply multiple years of data rather than 2020Q1 alone.')
 
 def make_arrivals(df):
     """
-    从真实贷款标签月份生成反馈日程。
+    Build a feedback schedule from observed loan-outcome months.
 
-    同一月份中，先处理该月预测，
-    再释放当月月末可确定的标签。
-
-    输出时间单位仍是原代码的事件步。
+    Process predictions within each month before releasing labels determined
+    at month end. Express the resulting schedule in event-time steps.
     """
     online = df.iloc[400:]
     months = online.event_month.to_numpy(dtype=np.int64)
@@ -177,7 +166,7 @@ def evaluate(df, counts, split_month, models, enable_adwin):
 
     def real_feedback(_y, _seed, _lambda0, _lambda1):
         if len(_y) != len(y):
-            raise RuntimeError('回放数据长度不一致')
+            raise RuntimeError('The replay data lengths do not match.')
         return (arrival_map, arrival_groups)
     base.generate_delay = real_feedback
     engine.base.generate_delay = real_feedback
@@ -226,13 +215,13 @@ def evaluate(df, counts, split_month, models, enable_adwin):
             close = int(record.decision_time - record.decision_delay)
             ids = list(range(close - 99, close + 1))
             if ids[0] < 400:
-                raise RuntimeError('窗口索引异常')
+                raise RuntimeError('Invalid window indices.')
             if any((i not in arrival_map for i in ids)):
-                raise RuntimeError('窗口反馈映射不完整')
+                raise RuntimeError('The window feedback mapping is incomplete.')
             wait_time = max(close, max((arrival_map[i] for i in ids)))
             advance = wait_time - int(record.decision_time)
             if advance < 0:
-                raise RuntimeError('反事实确认时间错误')
+                raise RuntimeError('Invalid counterfactual confirmation time.')
             paired.append({'learner': record.learner, 'oracle': record.oracle, 'window_end': close, 'complete_delay': int(record.decision_delay), 'waitall_delay': wait_time - close, 'advance_steps': advance, 'early': int(advance > 0)})
     paired_df = pd.DataFrame(paired)
     paired_df.to_csv(OUT / 'matched_windows.csv', index=False)
@@ -257,7 +246,7 @@ def main():
     orig_files = sorted(glob.glob(args.orig))
     perf_files = sorted(glob.glob(args.perf))
     if not orig_files or not perf_files:
-        raise FileNotFoundError('没有找到贷款数据文件，检查--orig和--perf')
+        raise FileNotFoundError('No loan data files were found. Check --orig and --perf.')
     df, counts = build_events(orig_files, perf_files, args.max_per_year, 2026)
     print('DATA QUALITY:')
     print(counts)
@@ -266,7 +255,7 @@ def main():
     df[['id_loan', 'event_month', 'label_month', 'label', 'label_kind']].to_csv(OUT / 'event_schedule.csv', index=False)
     print('Initial train/cal:', 400, 'Online:', len(df) - 400)
     if args.adwin and 'ARF' not in args.models:
-        raise ValueError('--adwin必须同时指定ARF')
+        raise ValueError('--adwin requires the ARF learner.')
     models = sorted(set(args.models), key=lambda name: {'LR': 0, 'DT': 1, 'ARF': 2}[name])
     evaluate(df, counts, split_month, models, args.adwin)
 if __name__ == '__main__':

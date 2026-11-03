@@ -30,7 +30,7 @@ def run(args):
             df[name] = pd.to_numeric(df[name], errors='coerce')
         df = df.dropna(subset=['t0']).sort_values(['t0', 'id_loan']).reset_index(drop=True)
         if df.id_loan.duplicated().any():
-            raise ValueError('存在重复贷款编号')
+            raise ValueError('Duplicate loan IDs.')
         matured = (df.t0 < cutoff) & df.label.isin([0, 1]) & (df.ready >= df.t0) & (df.ready < cutoff)
         historical = df[matured].copy()
         required_history = args.train + args.cal

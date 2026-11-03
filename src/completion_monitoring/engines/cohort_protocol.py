@@ -276,19 +276,19 @@ def main():
     print('=' * 155)
     print('COMPLETE EVENT-TIME COHORT COMPARISON')
     print('=' * 155)
-    print('20C自然时间顺序数据：完全复用')
+    print('Reusing the chronological benchmark inputs')
     print('MAX_SAMPLES：', MAX_SAMPLES)
     print('Window：', WINDOW_SIZE)
     print('Epsilon：', EPSILON)
     print('Soft q：', MIN_CLASS_COVERAGE)
     print('Calibration：', POST_UPDATE_CAL_SIZE)
     print('Delay Seeds：', DELAY_SEEDS)
-    print('策略：', STRATEGIES)
+    print('Strategies: ', STRATEGIES)
     datasets = {}
     feasibility_records = []
     print()
     print('=' * 155)
-    print('加载20C完全相同的自然时间顺序数据')
+    print('Loading the same chronological benchmark inputs')
     print('=' * 155)
     for dataset, config in RAW_DATASETS.items():
         X, y, feasibility = base.load_natural_dataset(dataset, config)
@@ -304,11 +304,11 @@ def main():
     expected_rows = len(tasks) * len(STRATEGIES)
     print()
     print('=' * 155)
-    print('开始20D')
+    print('Starting the cohort-selection comparison')
     print('=' * 155)
-    print('独立任务：', len(tasks))
-    print('策略数：', len(STRATEGIES))
-    print('理论结果：', expected_rows)
+    print('Tasks: ', len(tasks))
+    print('Number of strategies: ', len(STRATEGIES))
+    print('Expected result rows: ', expected_rows)
     results = Parallel(n_jobs=CPU_JOBS, backend='loky', verbose=10, batch_size=1, pre_dispatch='2*n_jobs')((delayed(run_task)(*task) for task in tasks))
     all_runs = []
     all_decisions = []
@@ -323,9 +323,9 @@ def main():
     decision_df = pd.DataFrame(all_decisions)
     update_df = pd.DataFrame(all_updates)
     skipped_df = pd.DataFrame(all_skipped)
-    print('实际结果：', len(raw_df))
+    print('Actual result rows: ', len(raw_df))
     if len(raw_df) != expected_rows:
-        raise RuntimeError('20D结果不完整。')
+        raise RuntimeError('The cohort-selection comparison results are incomplete.')
     overall_df = summarize(raw_df, ['strategy'])
     dataset_df = summarize(raw_df, ['dataset', 'strategy'])
     dataset_learner_df = summarize(raw_df, ['dataset', 'learner', 'strategy'])
@@ -383,7 +383,7 @@ def main():
     elapsed = time.perf_counter() - total_start
     print()
     print('=' * 155)
-    print('输出文件')
+    print('Output files')
     print('=' * 155)
     for path in paths.values():
         print(path)
@@ -395,10 +395,10 @@ def main():
     for strategy in ['FULL_SOFT_Q30', 'FULL_COMPLETE_COHORT']:
         row = safety_df[safety_df['strategy'] == strategy].iloc[0]
         passed = int(row['nonperfect_runs']) == 0 and int(row['false_positive']) == 0 and (int(row['false_negative']) == 0)
-        print(f"{strategy} 安全检查：{('通过 ' if passed else '异常 ')}")
+        print(f"{strategy} 安全检查：{('Passed: ' if passed else 'Failed: ')}")
     print()
-    print('重要：20D只比较训练样本选择机制。')
-    print('没有重新调W / epsilon / q / Update Size / Calibration Size / 5000样本长度 / Seeds。')
+    print('This experiment compares training-sample selection mechanisms.')
+    print('Window size, epsilon, q, update size, calibration size, the 5,000-observation stream length, and seeds retain their fixed settings.')
     print('=' * 155)
 if __name__ == '__main__':
     main()

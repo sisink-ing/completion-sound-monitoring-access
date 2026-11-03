@@ -32,7 +32,7 @@ python -m pip check
 
 以后打开新终端时，回到仓库根目录，重新激活 `.venv` 即可。
 
-额外依赖按任务放在 `environments/`：`generation.txt` 包含 River、Matplotlib、tqdm，`bts.txt` 包含 tzdata。ARF 训练使用兼容 [scikit-multiflow](https://scikit-multiflow.github.io/) 的独立环境。第 4 节基础复现使用固定版本的 CPU 核心依赖，进一步说明见 [docs/environment.md](docs/environment.md)。
+额外依赖按任务放在 `environments/`：`generation.txt` 包含 River、Matplotlib、tqdm，`bts.txt` 包含 tzdata。ARF 训练使用独立的 Python 3.9 环境，固定依赖版本见 `environments/arf.txt`。第 4 节基础复现使用固定版本的 CPU 核心依赖，进一步说明见 [docs/environment.md](docs/environment.md)。
 
 ## 2. 目录说明
 
@@ -90,7 +90,7 @@ python experiments/real_world/replay_retailrocket.py
 
 | 命令或脚本 | 得到什么 | 在哪里查看 |
 | --- | --- | --- |
-| `verify_integrity.py` | 检查 576 个数据文件、47 个 Python 文件和冻结流数量。 | 终端显示 `"passed": true`。 |
+| `verify_integrity.py` | 检查 576 个数据文件、48 个 Python 文件和冻结流数量。 | 终端显示 `"passed": true`。 |
 | `unittest` | 对大小 1–6 的窗口进行补全规则穷举测试。 | 终端显示 `OK`。 |
 | `check_protocol.py` | 在一条冻结 SEA 流上运行 LR/DT，各四种策略，共 8 个结果。 | `results/smoke/metrics.csv` 和 `verification.json`。 |
 | `reproduce_statistics.py` | 表 8/S1 的配对差值、秩、有效样本量和检验结果。 | `results/statistics/table8/`、`tableS1/` 和 `verification.json`。 |

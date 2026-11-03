@@ -61,7 +61,7 @@ def main():
         raise FileNotFoundError(SOURCE)
     ids = pd.read_csv(SOURCE, usecols=['id_loan', 'year'], dtype={'id_loan': str})
     if ids.id_loan.duplicated().any():
-        raise RuntimeError('Step37存在重复贷款ID')
+        raise RuntimeError('Duplicate loan IDs in the reconstructed outcomes.')
     events = []
     origins = []
     for year, group in ids.groupby('year'):

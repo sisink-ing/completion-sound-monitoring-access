@@ -32,7 +32,7 @@ python -m pip check
 
 For a new terminal session, return to the repository root and reactivate `.venv`.
 
-Additional dependencies are grouped in `environments/`: `generation.txt` for River, Matplotlib and tqdm; `bts.txt` for tzdata. ARF training uses a separate environment compatible with [scikit-multiflow](https://scikit-multiflow.github.io/). The core reproduction commands below use the pinned CPU packages. See [environment details](docs/environment.md).
+Additional dependencies are grouped in `environments/`: `generation.txt` for River, Matplotlib and tqdm; `bts.txt` for tzdata. ARF training uses a separate Python 3.9 environment with pinned dependencies in `environments/arf.txt`. The core reproduction commands below use the pinned CPU packages. See [environment details](docs/environment.md).
 
 ## 2. Repository layout
 
@@ -90,7 +90,7 @@ python experiments/real_world/replay_retailrocket.py
 
 | Command/script | What it produces | Where to look |
 | --- | --- | --- |
-| `verify_integrity.py` | Checks 576 data files, 47 Python files and frozen-stream counts. | Terminal: `"passed": true`. |
+| `verify_integrity.py` | Checks 576 data files, 48 Python files and frozen-stream counts. | Terminal: `"passed": true`. |
 | `unittest` | Exhaustive completion-rule test for window sizes 1–6. | Terminal: `OK`. |
 | `check_protocol.py` | Eight runs: LR/DT with four strategies each on a frozen SEA stream. | `results/smoke/metrics.csv` and `verification.json`. |
 | `reproduce_statistics.py` | Table 8/Table S1 paired differences, ranks, effective sample sizes and test results. | `results/statistics/table8/`, `tableS1/` and `verification.json`. |
