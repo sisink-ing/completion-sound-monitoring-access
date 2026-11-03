@@ -1,6 +1,6 @@
 {
   "python": "3.12.14",
-  "python_executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+  "python_executable": "python3",
   "numpy": "2.3.5",
   "pandas": "2.2.3",
   "scipy": "1.17.0",
