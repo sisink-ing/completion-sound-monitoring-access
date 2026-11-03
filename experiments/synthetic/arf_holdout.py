@@ -213,11 +213,7 @@ def run_generation(smoke=False):
 
 def patch_engine_to_arf(engine):
     """
-    IMPORTANT:
-    This function is called INSIDE each joblib worker.
-
-    That prevents loky subprocesses from silently re-importing
-    the original LR/DT create_model() function.
+    Install the ARF constructor within each joblib worker before evaluation.
     """
     try:
         from skmultiflow.meta import AdaptiveRandomForestClassifier
@@ -273,12 +269,7 @@ def run_one_arf_task(dataset, stream_seed, scenario, lambda0, lambda1, delay_see
 
 def stratified_bootstrap_ci(diff_df, reps=BOOTSTRAP_REPS):
     """
-    Family-stratified bootstrap.
-
-    FIX:
-    Iterate ONLY over families actually present in diff_df.
-
-    This allows smoke tests containing SEA only.
+    Resample stream differences within each dataset family present in diff_df.
     """
     if len(diff_df) == 0:
         return (np.nan, np.nan)

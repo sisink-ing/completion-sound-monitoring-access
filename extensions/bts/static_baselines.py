@@ -40,6 +40,6 @@ def main():
         print(name, metrics)
         pd.DataFrame({'event_id': online.event_id, 'historical_prediction': pred, 'true_label_offline_only': Yte}).to_csv(OUT / (name + '_' + filename), index=False)
     (OUT / 'smoke_metrics.json').write_text(json.dumps(results, indent=2), encoding='utf-8')
-    print('IMPORTANT: Static smoke tests only; no asynchronous cohort adaptation performed.')
+    print('Evaluation scope: static prediction smoke tests without cohort adaptation.')
 if __name__ == '__main__':
     main()
