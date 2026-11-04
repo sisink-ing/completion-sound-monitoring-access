@@ -25,9 +25,17 @@ origination and performance files under the provider's access terms and set
 ```bash
 python scripts/run_extension.py freddie_feasibility
 python scripts/run_extension.py freddie_protocol
-python scripts/run_extension.py freddie_calendar
+python scripts/run_extension.py freddie_calendar --task 1 --learner LR --limit-online 1000
 ```
 
 Reference extension results are stored in `data/extensions/`. These studies
 are separate from the manuscript's synthetic, Electricity and Retailrocket
 evaluations.
+
+Validate the nine archived calendar-replay tasks with:
+
+```bash
+python extensions/freddie_mac/validate_results.py
+```
+
+Use `--results PATH` to validate another complete calendar-replay result directory.
