@@ -2,16 +2,17 @@ from pathlib import Path
 import os, sys, json, hashlib, importlib, time, ast, copy, warnings
 for k in ['OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'NUMEXPR_NUM_THREADS']:
     os.environ[k] = '1'
-ROOT = Path(__file__).resolve().parents[2]
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE / 'deps'))
-sys.path.insert(0, str(HERE / 'original'))
+ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / 'src'))
+from completion_monitoring.paths import activate_sources, source_file
+activate_sources()
+HERE = Path(os.environ.get('PAA_TASK_ROOT', ROOT / 'results/retailrocket_preparation')).expanduser().resolve()
 import numpy as np, pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.metrics import accuracy_score, f1_score, matthews_corrcoef, balanced_accuracy_score, average_precision_score, precision_score, recall_score
 warnings.filterwarnings('ignore', category=UserWarning)
 ORIGINAL_CWD = Path.cwd()
-(HERE / 'work').mkdir(exist_ok=True)
+(HERE / 'work').mkdir(parents=True, exist_ok=True)
 os.chdir(HERE / 'work')
 m = importlib.import_module('cohort_protocol')
 b = m.base
@@ -223,7 +224,7 @@ class ADWINCompat:
         return self.d.estimation
 
 def build_adwin():
-    source = (HERE / 'original/delayed_adwin.py').read_text()
+    source = source_file('delayed_adwin.py').read_text()
     tree = ast.parse(source)
     node = next((x for x in tree.body if isinstance(x, ast.FunctionDef) and x.name == 'adwin_one'))
     idx = next((i for i, x in enumerate(node.body) if isinstance(x, ast.Assign) and isinstance(x.targets[0], ast.Tuple) and any((isinstance(v, ast.Name) and v.id == 'reference' for v in x.targets[0].elts))))

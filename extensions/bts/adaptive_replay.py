@@ -5,13 +5,13 @@ for k in ('OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS', 'NUMEXPR
 import argparse
 import json
 from collections import defaultdict
-from pathlib import Path
+from completion_monitoring.paths import workspace_root
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score, matthews_corrcoef, recall_score
 from importlib import import_module
 core = import_module('matched_window_evaluation')
-ROOT = Path(__file__).resolve().parent
+ROOT = workspace_root()
 FEATS = core.FEATURES
 
 def main():

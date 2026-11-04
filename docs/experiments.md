@@ -61,3 +61,7 @@ python experiments/real_world/prepare_retailrocket.py --input /path/to/RetailRoc
 Task construction and selected-holdout replay are separate operations. The
 selected task and feature specification are stored in
 `data/processed/retailrocket/retailrocket_protocol.json`.
+
+The task-selection script reads `catalog.json` and dataset pickle files from
+`results/retailrocket_preparation/processed/`. Set `PAA_TASK_ROOT` to another
+preparation directory when using an external catalog.

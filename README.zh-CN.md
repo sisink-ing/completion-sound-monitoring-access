@@ -117,7 +117,7 @@ python scripts/run_experiment.py coverage --smoke --jobs 1
 python scripts/check_protocol.py --output results/smoke_second
 ```
 
-新计算写入 `results/`，分发的参考记录保留在 `data/reference/`。扩展入口状态：BTS 预处理可运行，下游回放需要适配源目录相对路径；Freddie Mac 回放需要提供方原始文件。
+新计算写入 `results/`，分发的参考记录保留在 `data/reference/`。BTS 预处理与下游回放通过 `scripts/run_extension.py` 使用随包输入；Freddie Mac 回放需要提供方原始文件。
 
 ## 6. 常见问题与文档
 

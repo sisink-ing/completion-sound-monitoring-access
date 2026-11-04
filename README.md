@@ -117,7 +117,7 @@ For another run, choose a fresh output directory, for example:
 python scripts/check_protocol.py --output results/smoke_second
 ```
 
-New computations go to `results/`; distributed reference records stay in `data/reference/`. Extension status: BTS preprocessing is runnable; downstream BTS replay requires adapting its source-relative input paths. Freddie Mac replay requires external provider files.
+New computations go to `results/`; distributed reference records stay in `data/reference/`. BTS preprocessing and downstream replay use the supplied inputs through `scripts/run_extension.py`. Freddie Mac replay requires external provider files.
 
 ## 6. Troubleshooting and documentation
 

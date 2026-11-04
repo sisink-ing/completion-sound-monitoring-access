@@ -10,8 +10,8 @@ python scripts/run_extension.py bts_matched
 python scripts/run_extension.py bts_adaptive
 ```
 
-Inputs are stored in `data/raw/bts/`; results are written below
-`results/extensions/`. The replay constructs label-release times from flight
+Inputs are stored in `data/raw/bts/`; each command uses a separate working
+directory below `results/extensions/`. The replay constructs label-release times from flight
 arrival timestamps and a specified buffer. Predictive features are selected
 explicitly by the preparation pipeline.
 

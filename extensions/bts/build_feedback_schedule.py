@@ -1,9 +1,9 @@
 """Build a delayed-feedback schedule for the BTS replay."""
-from pathlib import Path
+from completion_monitoring.paths import workspace_root
 import argparse, json
 import numpy as np
 import pandas as pd
-ROOT = Path(__file__).resolve().parent
+ROOT = workspace_root()
 OUT = ROOT / 'result' / 'build_feedback_schedule'
 
 def main():

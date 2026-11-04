@@ -1,5 +1,5 @@
 """Evaluate static predictors on BTS observations."""
-from pathlib import Path
+from completion_monitoring.paths import workspace_root
 import argparse, json
 import pandas as pd
 from sklearn.compose import ColumnTransformer
@@ -9,7 +9,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, f1_score, matthews_corrcoef
-ROOT = Path(__file__).resolve().parent
+ROOT = workspace_root()
 IN = ROOT / 'result' / 'prepare_bts'
 OUT = ROOT / 'result' / 'static_baselines'
 NUM = ['DayOfWeek', 'CRSDepTime', 'CRSElapsedTime', 'Distance']

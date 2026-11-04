@@ -1,5 +1,5 @@
 """Compare confirmation rules on matched BTS event-time windows."""
-from pathlib import Path
+from completion_monitoring.paths import workspace_root
 import argparse, json
 import numpy as np
 import pandas as pd
@@ -9,7 +9,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-ROOT = Path(__file__).resolve().parent
+ROOT = workspace_root()
 IN = ROOT / 'result' / 'prepare_bts'
 OUT = ROOT / 'result' / 'matched_window_evaluation'
 NUM = ['DayOfWeek', 'CRSDepTime', 'CRSElapsedTime', 'Distance']
